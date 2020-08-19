@@ -1,0 +1,48 @@
+使用手册：
+Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+dependencies {
+	     implementation 'com.github.dimeno-tech:dimeno-updateapp:0.0.1'
+	}
+
+Step 3. add permission
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+Step 4. 调用VersionUtil.getInstance().checkVersion方法
+注意事项：
+升级接口的实体格式暂时被限定
+下面的类我去掉了get和set方法，自行添加
+public class AppUpdateBean {
+
+    private int code;
+    private DataBean data;
+    private String message;
+    private boolean success;
+
+    public static class DataBean {
+
+        private String appDownloadurl;//apk下载地址
+        private int appLastforce;//是否强制更新 1强制 0不强制
+        private String appName;//APP名字
+        private String appRemark;//APP备注
+        private String appServerversion;//APP服务端版本
+        private int appStatus;//APP状态
+        private Object appStr1;
+        private Object appStr2;
+        private String createTime;
+        private String createUser;
+        private String id;
+        private String updateTime;
+        private String updateUser;
+
+    }
+}

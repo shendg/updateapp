@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompat"
+    implementation "junit:junit:$rootProject.ext.junit"
+    implementation "androidx.test:runner:$rootProject.ext.testRunner"
+    implementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCore"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayout"
+
+    //网络请求
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp3okhttp"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp3logginginterceptor"
+    api "com.qianwen:okhttp-utils:$rootProject.ext.okhttp_utils"
+    api "com.google.code.gson:gson:$rootProject.ext.gson"
+    //android版
+    api "com.alibaba:fastjson:$rootProject.ext.fastjson_android"
+
+}
