@@ -94,7 +94,7 @@ public class VersionUtil {
                                         .setNewVersion(dataBean.getAppName())//这里改为版本名称1.0.50
                                         // dataBean.getAppServerversion()
                                         .setUpdateLog(dataBean.getAppRemark())
-                                        .setApkFileUrl("http://120.79.146.36:18095" + dataBean.getAppDownloadurl());
+                                        .setApkFileUrl(dataBean.getAppDownloadurl());
                             } else {
                                 updateAppBean.setUpdate("No");
                             }
